@@ -634,6 +634,104 @@
             color: var(--primary-color);
             margin-top: 5px;
         }
+/* Aumentar fonte de TODAS as atividades do Gantt */
+.gantt-table {
+    font-size: 13px; /* Aumentado de 11px/12px */
+}
+/* Fonte ainda maior */
+.gantt-table {
+    font-size: 14px;
+}
+
+.gantt-table td {
+    font-size: 14px;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+.gantt-table .eap-header {
+    font-size: 15px;
+    padding: 12px;
+}
+
+.gantt-table .eap-subitem {
+    font-size: 14px;
+    padding-left: 25px;
+}
+
+.gantt-table th {
+    font-size: 12px;
+    padding: 12px 8px;
+}
+.gantt-table td {
+    font-size: 13px; /* Aumentado */
+    padding: 8px; /* Aumentar padding para melhor legibilidade */
+    line-height: 1.4;
+}        
+        /* Estilos para a tabela Gantt com fonte MUITO menor */
+.gantt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px; /* Fonte bem pequena */
+}
+.gantt-table th:first-child {
+    font-size: 14px; /* Altere para o tamanho desejado */
+    font-weight: bold;
+}
+.gantt-table .eap-header[style*="background-color: #2c3e50"] {
+    background-color: #447aad !important; /* Roxo */
+}   
+.gantt-table th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 22px 12px; /* Padding mínimo */
+    text-align: center;
+    border: 1px solid #34495e;
+    min-width: 45px; /* Colunas mais estreitas */
+    font-size: 9px; /* Fonte bem pequena para cabeçalho */
+    line-height: 1.1;
+}
+
+.gantt-table td {
+    padding: 4px; /* Padding mínimo */
+    border: 1px solid #bdc3c7;
+    text-align: left;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.gantt-table .eap-header {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+    font-size: 10px;
+}
+
+.gantt-table .eap-subitem {
+    padding-left: 12px;
+    font-size: 10px;
+}
+        
+        .gantt-table .task-active {
+            background-color: #3498db;
+        }
+        
+        .gantt-table .task-supply {
+            background-color: #9b59b6;
+        }
+        
+        .gantt-table .task-construction {
+            background-color: #2ecc71;
+        }
+        
+        .gantt-table .task-commissioning {
+            background-color: #f1c40f;
+        }
+        
+        .gantt-table .task-operation {
+            background-color: #e74c3c;
+        }
         
         @media (max-width: 768px) {
             .dashboard-header {
@@ -856,12 +954,10 @@
                 </div>
             </div>
             
-            <!-- Resto do conteúdo das outras abas permanece igual -->
             <div class="tab-content" id="wbs">
                 <h2 class="section-title"><i class="fas fa-sitemap"></i> Estrutura Analítica do Projeto (EAP)</h2>
                 
                 <div class="wbs-tree">
-                    <!-- Conteúdo da EAP mantido igual -->
                     <div class="wbs-item wbs-level-1">1. SUZANO IMPERATRIZ - ELÉTRICA NR-17 SECAGEM</div>
                     
                     <div class="wbs-item wbs-level-2">1.1 Marcos Principais</div>
@@ -934,15 +1030,369 @@
                 </div>
             </div>
             
-            <div class="tab-content" id="schedule">
+           <div class="tab-content" id="schedule">
     <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Cronograma do Projeto</h2>
     
-    <div class="chart-container">
-        <div class="chart-title"><i class="fas fa-chart-gantt"></i> Gráfico de Gantt - Estrutura por EAP</div>
-        <canvas id="ganttChart" style="height: 600px;"></canvas>
+    <div class="chart-container" style="height: 700px; overflow-y: auto; padding: 0;">
+        <div class="chart-title" style="position: sticky; top: 0; background: white; z-index: 100; padding: 20px 25px; margin: 0; border-bottom: 1px solid var(--border-color);">
+            <i class="fas fa-chart-gantt"></i> Gráfico de Gantt - Detalhamento por EAP
+        </div>
+        <div style="padding: 0 25px 25px 25px;">
+            <table class="gantt-table" style="width: 100%;">
+                <thead style="position: sticky; top: 80px; background: #2c3e50; z-index: 50;">
+                    <tr>
+                        <th style="min-width: 300px; text-align: left;">Atividade</th>
+                        <th>S.01<br>14/09</th>
+                        <th>S.02<br>21/09</th>
+                        <th>S.03<br>28/09</th>
+                        <th>S.04<br>05/10</th>
+                        <th>S.05<br>12/10</th>
+                        <th>S.06<br>19/10</th>
+                        <th>S.07<br>26/10</th>
+                        <th>S.08<br>02/11</th>
+                        <th>S.09<br>09/11</th>
+                        <th>S.10<br>16/11</th>
+                        <th>S.11<br>23/11</th>
+                        <th>S.12<br>30/11</th>
+                        <th>S.13<br>07/12</th>
+                        <th>S.14<br>14/12</th>
+                        <th>S.15<br>21/12</th>
+                        <th>S.16<br>28/12</th>
+                        <th>S.17<br>04/01</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Marcos Principais -->
+                    <tr>
+                        <td class="eap-header" style="background-color: #2c3e50;">1.1 Marcos Principais</td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">Início do Projeto</td>
+                        <td style="background-color: #2c3e50;"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">Término do Projeto</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td style="background-color: #2c3e50;"></td>
+                    </tr>
+
+                    <!-- Engenharia -->
+                    <tr>
+                        <td class="eap-header">1.2 Engenharia</td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.2.1 Elaboração dos Projetos</td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.2.1.2 Aprovação dos Projetos</td>
+                        <td></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.2.1.3 Montagem dos Equipamentos</td>
+                        <td></td><td></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.2.1.4 Aprovação final</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td class="task-active"></td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.2.1.5 Despacho do Painel</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td class="task-active"></td>
+                        <td class="task-active"></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+
+                    <!-- Fornecimento -->
+                    <tr>
+                        <td class="eap-header" style="background-color: #9b59b6;">1.3 Fornecimento</td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.3.1.1 Compra de Materiais</td>
+                        <td class="task-supply"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.3.1.2 Transporte dos Materiais</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-supply"></td>
+                        <td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.3.2.1 Mobilização</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-supply"></td>
+                        <td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+
+                    <!-- Construção e Montagem -->
+                    <tr>
+                        <td class="eap-header" style="background-color: #2ecc71;">1.4 Construção e Montagem</td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.1.1 Montagem encaminhamentos ventiladores</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.1.2 Montagem encaminhamentos exaustores</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.1.3 Montagem encaminhamento PL-001</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.2.1 Lançamento cabos ventiladores</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.3.1 Lançamento cabos exaustores</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.3.2 Ligação cabos ventiladores</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.3.3 Lançamento cabo alimentador</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.3.4 Ligação cabos exaustores</td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.4.1 Recebimento Painel PL-001</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.4.2 Instalação Painel PL-001</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.4.3 Furação chaparia PL-001</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.4.4 Adequação eletrodutos PL-001</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.5.1 Preparação da gaveta</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.5.2 Lançamento cabo gaveta</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.5.3 Inserção gaveta CCM Siplux</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.4.5.4 Teste da gaveta</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="task-construction"></td>
+                        <td class="task-construction"></td>
+                        <td></td><td></td>
+                    </tr>
+
+                    <!-- Comissionamento -->
+                    <tr>
+                        <td class="eap-header" style="background-color: #f1c40f;">1.5 Comissionamento</td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.5.1.1 Ventilador 1 - EC 01</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.5.1.2 Ventilador 2 - EC 02</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.5.1.3 Exaustor 1 - EA 01</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.5.1.4 Exaustor 2 - EA 02</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td class="task-commissioning"></td>
+                        <td></td><td></td>
+                    </tr>
+
+                    <!-- Operação Assistida -->
+                    <tr>
+                        <td class="eap-header" style="background-color: #e74c3c;">1.6 Operação Assistida</td>
+                        <td colspan="17"></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.6.1 Aceite final dos serviços</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td class="task-operation"></td>
+                        <td class="task-operation"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.6.2 Limpeza final</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-operation"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="eap-subitem">1.6.3 Desmobilização</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td>
+                        <td></td>
+                        <td class="task-operation"></td>
+                        <td class="task-operation"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    
+
     <div class="gantt-legend">
+        <div class="gantt-legend-item">
+            <div class="gantt-legend-color" style="background-color: #2c3e50;"></div>
+            <span>Marcos</span>
+        </div>
         <div class="gantt-legend-item">
             <div class="gantt-legend-color" style="background-color: #3498db;"></div>
             <span>Engenharia</span>
@@ -962,10 +1412,6 @@
         <div class="gantt-legend-item">
             <div class="gantt-legend-color" style="background-color: #e74c3c;"></div>
             <span>Operação</span>
-        </div>
-        <div class="gantt-legend-item">
-            <div style="width: 16px; height: 16px; border: 2px solid #2c3e50; background: transparent;"></div>
-            <span>Marco</span>
         </div>
     </div>
 </div>
@@ -1322,60 +1768,60 @@
             });
             
             // S-Curve Chart - Atualizado com dados da image.png
-const sCurveCtx = document.getElementById('sCurveChart').getContext('2d');
-new Chart(sCurveCtx, {
-    type: 'line',
-    data: {
-        labels: ['S.01', 'S.02', 'S.03', 'S.04', 'S.05', 'S.06', 'S.07', 'S.08', 'S.09', 'S.10', 'S.11', 'S.12', 'S.13', 'S.14', 'S.15', 'S.16', 'S.17'],
-        datasets: [
-            {
-                label: 'Progresso Previsto',
-                data: [15, 20.5, 21.8, 23.3, 24.5, 28.1, 31.6, 35.2, 41.9, 47.2, 57.2, 75.7, 81.0, 87.8, 97.0, 98.0, 100.0],
-                borderColor: '#3498db',
-                backgroundColor: 'rgba(52, 152, 219, 0.1)',
-                tension: 0.4,
-                fill: false
-            },
-            {
-                label: 'Progresso Real',
-                data: [14.0, 14.0, 14.0, 14.0, 14.0, 27.0, 43.2, 54.6, 68.1, 76.1, null, null, null, null, null, null, null],
-                borderColor: '#27ae60',
-                backgroundColor: 'rgba(39, 174, 96, 0.1)',
-                tension: 0.4,
-                fill: false
-            },
-            {
-                label: 'Forecast (Real Previsto)',
-                data: [null, null, null, null, null, null, null, null, null, 76.1, 76, 82, 88, 94, 97, 98, 100],
-                borderColor: '#f39c12',
-                borderDash: [5, 5],
-                backgroundColor: 'rgba(243, 156, 18, 0.1)',
-                tension: 0.4,
-                fill: false
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100,
-                title: {
-                    display: true,
-                    text: 'Progresso (%)'
+            const sCurveCtx = document.getElementById('sCurveChart').getContext('2d');
+            new Chart(sCurveCtx, {
+                type: 'line',
+                data: {
+                    labels: ['S.01', 'S.02', 'S.03', 'S.04', 'S.05', 'S.06', 'S.07', 'S.08', 'S.09', 'S.10', 'S.11', 'S.12', 'S.13', 'S.14', 'S.15', 'S.16', 'S.17'],
+                    datasets: [
+                        {
+                            label: 'Progresso Previsto',
+                            data: [15, 20.5, 21.8, 23.3, 24.5, 28.1, 31.6, 35.2, 41.9, 47.2, 57.2, 75.7, 81.0, 87.8, 97.0, 98.0, 100.0],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            tension: 0.4,
+                            fill: false
+                        },
+                        {
+                            label: 'Progresso Real',
+                            data: [14.0, 14.0, 14.0, 14.0, 14.0, 27.0, 43.2, 54.6, 68.1, 76.1, null, null, null, null, null, null, null],
+                            borderColor: '#27ae60',
+                            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                            tension: 0.4,
+                            fill: false
+                        },
+                        {
+                            label: 'Forecast (Real Previsto)',
+                            data: [null, null, null, null, null, null, null, null, null, 76.1, 76, 82, 88, 94, 97, 98, 100],
+                            borderColor: '#f39c12',
+                            borderDash: [5, 5],
+                            backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                            tension: 0.4,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Progresso (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Semanas do Projeto'
+                            }
+                        }
+                    }
                 }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Semanas do Projeto'
-                }
-            }
-        }
-    }
-});
+            });
             
             // Commissioning Progress Chart
             const commissioningProgressCtx = document.getElementById('commissioningProgressChart').getContext('2d');
@@ -1415,209 +1861,7 @@ new Chart(sCurveCtx, {
                     }
                 }
             });
-            
-            // Initialize Timeline Chart
-            initializeTimelineChart();
-        }// Gantt Chart - Cronograma por EAP
-const ganttCtx = document.getElementById('ganttChart').getContext('2d');
-
-// Datas para cálculo
-const startDate = new Date('2025-09-15');
-const endDate = new Date('2026-01-09');
-
-// Função para calcular posição no eixo X
-function calculateXPosition(date) {
-    const totalDuration = endDate - startDate;
-    const position = (new Date(date) - startDate) / totalDuration;
-    return position * 100; // Retorna porcentagem
-}
-
-// Dados do Gantt organizados por EAP
-const ganttData = {
-    labels: [
-        // Marcos
-        'Início do Projeto',
-        'Término do Projeto',
-        
-        // Engenharia
-        '1.2.1.1 Elaboração dos Projetos',
-        '1.2.1.2 Aprovação dos Projetos', 
-        '1.2.1.3 Montagem dos Equipamentos',
-        '1.2.1.4 Aprovação final',
-        '1.2.1.5 Despacho do Painel',
-        
-        // Fornecimento
-        '1.3.1.1 Compra de Materiais',
-        '1.3.1.2 Transporte dos Materiais',
-        '1.3.2.1 Mobilização',
-        
-        // Construção
-        '1.4.1.1 Montagem encaminhamentos',
-        '1.4.1.2 Montagem exaustores',
-        '1.4.2.1 Lançamento cabos',
-        '1.4.4.1 Recebimento Painel',
-        '1.4.4.2 Instalação Painel',
-        
-        // Comissionamento
-        '1.5.1.1 Ventilador 1 - EC 01',
-        '1.5.1.2 Ventilador 2 - EC 02',
-        '1.5.1.3 Exaustor 1 - EA 01',
-        '1.5.1.4 Exaustor 2 - EA 02',
-        
-        // Operação
-        '1.6.1 Aceite final',
-        '1.6.2 Limpeza final',
-        '1.6.3 Desmobilização'
-    ],
-    datasets: [
-        {
-            label: 'Marcos',
-            data: [
-                { x: calculateXPosition('2025-09-15'), y: 0 },
-                { x: calculateXPosition('2026-01-09'), y: 1 }
-            ],
-            backgroundColor: 'transparent',
-            borderColor: '#2c3e50',
-            borderWidth: 3,
-            pointRadius: 8,
-            pointStyle: 'rectRot',
-            showLine: false
-        },
-        {
-            label: 'Engenharia',
-            data: [
-                { x: [calculateXPosition('2025-09-15'), calculateXPosition('2025-09-18')], y: 2 },
-                { x: [calculateXPosition('2025-09-19'), calculateXPosition('2025-09-23')], y: 3 },
-                { x: [calculateXPosition('2025-09-24'), calculateXPosition('2025-11-10')], y: 4 },
-                { x: [calculateXPosition('2025-11-11'), calculateXPosition('2025-11-12')], y: 5 },
-                { x: [calculateXPosition('2025-11-13'), calculateXPosition('2025-11-20')], y: 6 }
-            ],
-            backgroundColor: '#3498db',
-            borderColor: '#2980b9',
-            borderWidth: 1,
-            barPercentage: 0.6
-        },
-        {
-            label: 'Fornecimento',
-            data: [
-                { x: [calculateXPosition('2025-09-18'), calculateXPosition('2025-09-19')], y: 7 },
-                { x: [calculateXPosition('2025-10-15'), calculateXPosition('2025-10-16')], y: 8 },
-                { x: [calculateXPosition('2025-10-17'), calculateXPosition('2025-10-18')], y: 9 }
-            ],
-            backgroundColor: '#9b59b6',
-            borderColor: '#8e44ad',
-            borderWidth: 1,
-            barPercentage: 0.6
-        },
-        {
-            label: 'Construção',
-            data: [
-                { x: [calculateXPosition('2025-10-20'), calculateXPosition('2025-10-27')], y: 10 },
-                { x: [calculateXPosition('2025-10-25'), calculateXPosition('2025-10-30')], y: 11 },
-                { x: [calculateXPosition('2025-10-28'), calculateXPosition('2025-11-03')], y: 12 },
-                { x: [calculateXPosition('2025-11-21'), calculateXPosition('2025-11-21')], y: 13 },
-                { x: [calculateXPosition('2025-11-22'), calculateXPosition('2025-11-24')], y: 14 }
-            ],
-            backgroundColor: '#2ecc71',
-            borderColor: '#27ae60',
-            borderWidth: 1,
-            barPercentage: 0.6
-        },
-        {
-            label: 'Comissionamento',
-            data: [
-                { x: [calculateXPosition('2025-11-05'), calculateXPosition('2025-12-15')], y: 15 },
-                { x: [calculateXPosition('2025-11-05'), calculateXPosition('2025-12-15')], y: 16 },
-                { x: [calculateXPosition('2025-11-05'), calculateXPosition('2025-12-15')], y: 17 },
-                { x: [calculateXPosition('2025-11-05'), calculateXPosition('2025-12-15')], y: 18 }
-            ],
-            backgroundColor: '#f1c40f',
-            borderColor: '#f39c12',
-            borderWidth: 1,
-            barPercentage: 0.6
-        },
-        {
-            label: 'Operação',
-            data: [
-                { x: [calculateXPosition('2025-12-29'), calculateXPosition('2026-01-05')], y: 19 },
-                { x: [calculateXPosition('2026-01-06'), calculateXPosition('2026-01-07')], y: 20 },
-                { x: [calculateXPosition('2026-01-08'), calculateXPosition('2026-01-09')], y: 21 }
-            ],
-            backgroundColor: '#e74c3c',
-            borderColor: '#c0392b',
-            borderWidth: 1,
-            barPercentage: 0.6
         }
-    ]
-};
-
-new Chart(ganttCtx, {
-    type: 'bar',
-    data: ganttData,
-    options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                type: 'linear',
-                min: 0,
-                max: 100,
-                title: {
-                    display: true,
-                    text: 'Timeline do Projeto'
-                },
-                ticks: {
-                    callback: function(value) {
-                        // Converter porcentagem de volta para data
-                        const date = new Date(startDate.getTime() + (value / 100) * (endDate - startDate));
-                        return date.toLocaleDateString('pt-BR');
-                    }
-                }
-            },
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    callback: function(value, index) {
-                        return ganttData.labels[index];
-                    },
-                    font: {
-                        size: 10
-                    }
-                }
-            }
-        },
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const label = context.dataset.label || '';
-                        const value = context.parsed.x;
-                        
-                        if (Array.isArray(value)) {
-                            // Para barras (tarefas)
-                            const startPos = value[0];
-                            const endPos = value[1];
-                            const startDate = new Date(startDate.getTime() + (startPos / 100) * (endDate - startDate));
-                            const endDate = new Date(startDate.getTime() + (endPos / 100) * (endDate - startDate));
-                            
-                            return `${label}: ${startDate.toLocaleDateString('pt-BR')} - ${endDate.toLocaleDateString('pt-BR')}`;
-                        } else {
-                            // Para pontos (marcos)
-                            const date = new Date(startDate.getTime() + (value / 100) * (endDate - startDate));
-                            return `${label}: ${date.toLocaleDateString('pt-BR')}`;
-                        }
-                    }
-                }
-            },
-            legend: {
-                display: false // Já temos nossa própria legenda
-            }
-        }
-    }
-});
-        
-       
     </script>
 </body>
 </html>
